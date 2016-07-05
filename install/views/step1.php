@@ -1,6 +1,4 @@
-<?php $allowInstall = true;
-$processUser = posix_getpwuid(posix_geteuid());
-?>
+<?php $allowInstall = true; ?>
 Minimum PHP version: 5.2.0
 <?php
 if (version_compare(PHP_VERSION, '5.2.0', '>=')) {
@@ -40,7 +38,7 @@ if (is_writable('../assets/')) {
 } else {
     echo '<i class="fa fa-times text-warning"></i> (Themes will not work as expected)';
     echo "<br>To fix, run<br>
-<pre>sudo chown {$processUser['name']} " . dirname(dirname(__DIR__)) . "/assets -R
+<pre>sudo chown USERNAME " . dirname(dirname(__DIR__)) . "/assets -R
 sudo chmod 755 " . dirname(dirname(__DIR__)) . "/assets -R</pre>";
     $allowInstall = false;
 }
@@ -56,7 +54,7 @@ if (is_writable('../cache/')) {
 } else {
     echo '<i class="fa fa-times text-warning"></i> (Cache will not work)';
     echo "<br>To fix, run<br>
-<pre>sudo chown {$processUser['name']} " . dirname(dirname(__DIR__)) . "/cache -R
+<pre>sudo chown USERNAME " . dirname(dirname(__DIR__)) . "/cache -R
 sudo chmod 755 " . dirname(dirname(__DIR__)) . "/cache -R</pre>";
     $allowInstall = false;
 }
